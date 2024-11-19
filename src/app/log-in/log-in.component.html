@@ -1,0 +1,21 @@
+<h4>Login Existing Users</h4>
+
+<div>
+  <form #logInForm="ngForm" (ngSubmit)="handleLogInForm(logInForm);">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" ngModel/>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel/>
+    </div>
+
+    <div>
+        <button type="submit">LogIn</button>
+    </div>
+    <div>
+        <p>If don't have an account? <a href="/signup">SignUp</a></p>
+    </div>
+  </form>
+</div>

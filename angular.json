@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-p8-forms-in-angular"
+    }
+  },
+  "defaultProject": "angular-p8-forms-in-angular",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,32 @@
+<h4>Register New User</h4>
+
+<div>
+  <form #signupForm="ngForm" (ngSubmit)="handleSignUpForm(signupForm);"> 
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" ngModel/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ngModel/>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel/>
+    </div>
+    <div>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" ngModel/>
+    </div>
+    <div>
+        <input type="checkbox" id="terms_and_condition" name="terms_and_condition" ngModel>
+        <label for="terms_and_condition">Terms and conditions</label>
+    </div>
+    <div>
+        <button type="submit">Signup</button>
+    </div>
+    <div>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </form>
+</div>
