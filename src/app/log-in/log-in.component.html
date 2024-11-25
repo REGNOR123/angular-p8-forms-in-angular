@@ -1,21 +1,21 @@
 <h4>Login Existing Users</h4>
 
-<div>
+<div class="container">
   <form #logInForm="ngForm" (ngSubmit)="handleLogInForm(logInForm);">
-    <div>
+    <div class="form-group">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" ngModel/>
+      <input type="text" class="form-control" id="username" name="username" ngModel/>
     </div>
-    <div>
+    <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" ngModel/>
+        <input type="password" class="form-control" id="password" name="password" ngModel/>
     </div>
 
     <div>
-        <button type="submit">LogIn</button>
+        <button type="submit" class="btn btn-primary">LogIn</button>
     </div>
-    <div>
-        <p>If don't have an account? <a href="/signup">SignUp</a></p>
+    <div> 
+        <p>If don't have an account? <a href="/signup" >SignUp</a></p>
     </div>
   </form>
 </div>
