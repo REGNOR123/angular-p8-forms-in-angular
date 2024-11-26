@@ -12,9 +12,7 @@
         placeholder="Enter email"
         formControlName="emailFiled"
       />
-      <small id="emailHelp" class="form-text text-muted"
-        >We'll never share your email with anyone else.</small
-      >
+      <span *ngIf="checkoutForm.get('emailFiled').touched && checkoutForm.get('emailFiled').hasError('required')">Enter the email address</span>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
@@ -25,6 +23,7 @@
         placeholder="Password"
         formControlName="passwordField"
       />
+      <span *ngIf="checkoutForm.get('passwordField').touched && checkoutForm.get('passwordField').hasError('required') ">Minimum charectors should be 8</span>
     </div>
     <div class="form-check">
       <input
@@ -35,6 +34,6 @@
       />
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="checkoutForm.invalid">Submit</button>
   </form>
 </div>
