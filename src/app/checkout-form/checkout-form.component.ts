@@ -18,7 +18,7 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {}
 
   handleSubmit(){
-    console.log(this.checkoutForm);
+    console.log(this.checkoutForm);                      //STEP-4 : getting the input fields value
     console.log(this.checkoutForm.value.emailFiled);
     console.log(this.checkoutForm.value.passwordField);
     console.log(this.checkoutForm.value.checkBoxField);
