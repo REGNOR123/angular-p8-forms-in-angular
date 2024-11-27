@@ -21,13 +21,16 @@ export class CheckoutFormComponent implements OnInit {
     });
     this.checkoutForm = formBuilder.group({
       emailFiled: ['', [Validators.required, Validators.email]], // implementing the validqation in the required fields
-      passwordField: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-        ],
-      ],
+      passwordField: ['', [Validators.required, Validators.minLength(8)]],
+    });
+    // capturing the status for the entire form
+    this.checkoutForm.statusChanges.subscribe((data) => {
+      console.log(data);
+    });
+    // capturing the status for the individual fields
+
+    this.checkoutForm.get('emailFiled').statusChanges.subscribe((data) => {
+      console.log(data);
     });
   } //FormBuilder help us to build the form
 
