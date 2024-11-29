@@ -19,35 +19,41 @@ export class CheckoutFormComponent implements OnInit {
       passwordField: new FormControl(), //these should be exactly same as your form
       checkBoxField: new FormControl(),
     });
+
+    //FormBuilder help us to build the form
     this.checkoutForm = formBuilder.group({
-      emailFiled: ['', [  Validators.required, // implementing the validqation in the required fields
-                          Validators.minLength(5),
-                          Validators.email
-                        ],
-                  ],
-      passwordField: ['', [ Validators.required, 
-                            Validators.minLength(8)
-                          ]
-                     ],
+      emailFiled: [
+        '',
+        [
+          Validators.required, // implementing the validqation in the required fields
+          Validators.minLength(5),
+          Validators.email,
+        ],
+      ],
+      passwordField: ['', [Validators.required, Validators.minLength(8)]],
       checkBoxField: ['', [Validators.requiredTrue]],
 
-      items : this.formBuilder.array([       // FORM Array : having two simple controlnot used so much in the app
-        new FormControl('Angular'),
-        new FormControl('React')
-      ])               
+      items: this.formBuilder.array([  // Mutiple groups in a formArray
+        this.formBuilder.group({
+          itemId: ['1'],
+          itemName: ['name1'],
+          itemDesc: ['Desc1'],
+          itemDone: ['', Validators.requiredTrue],
+        }),
+      ]),
     });
-    // capturing the status for the entire form
-    this.checkoutForm.statusChanges.subscribe((data) => {
-      console.log(data);
-    });
-    // capturing the status for the individual fields
-
-    this.checkoutForm.get('emailFiled').statusChanges.subscribe((data) => {
-      console.log(data);
-    });
-  } //FormBuilder help us to build the form
-
-  ngOnInit(): void {}
+  }
+  ngOnInit(): void {
+    // this.checkoutForm.get('items').setValue({
+    //   itemId: ['2'],
+    //   itemName: ['name2'],
+    //   itemDesc: ['Desc2'],
+    //   itemDone: ['', Validators.requiredTrue],
+    // }),
+    console.log(this.checkoutForm.get('items').value.length);
+    console.log(this.checkoutForm.get('items').value);
+    
+  }
 
   handleSubmit() {
     console.log(this.checkoutForm); //STEP-4 : getting the input fields value
