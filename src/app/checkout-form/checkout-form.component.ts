@@ -20,8 +20,21 @@ export class CheckoutFormComponent implements OnInit {
       checkBoxField: new FormControl(),
     });
     this.checkoutForm = formBuilder.group({
-      emailFiled: ['', [Validators.required, Validators.email]], // implementing the validqation in the required fields
-      passwordField: ['', [Validators.required, Validators.minLength(8)]],
+      emailFiled: ['', [  Validators.required, // implementing the validqation in the required fields
+                          Validators.minLength(5),
+                          Validators.email
+                        ],
+                  ],
+      passwordField: ['', [ Validators.required, 
+                            Validators.minLength(8)
+                          ]
+                     ],
+      checkBoxField: ['', [Validators.requiredTrue]],
+
+      items : this.formBuilder.array([       // FORM Array : having two simple controlnot used so much in the app
+        new FormControl('Angular'),
+        new FormControl('React')
+      ])               
     });
     // capturing the status for the entire form
     this.checkoutForm.statusChanges.subscribe((data) => {
